@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    * {
+        user-select: none;
+        overflow: hidden;
+    }
+    
+    .main {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .box {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        height: 80px;
+        width: 180px;
+        background-color: rgb(0, 0, 0);
+        border-radius: 10px;
+    }
+    
+    .box .click_me {
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    
+    span {
+        font-size: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 800;
+        position: relative;
+    }
+    
+    .point_box {
+        margin-bottom: 10%;
+    }
+</style>
+
+
+<body>
+    <audio id="myAudio">
+        <source src="collect.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+
+
+
+
+    <div class="main">
+        <div class="point_box">
+            <span class="pointes"> 🪙Points = <span id="points">0</span></span>
+        </div>
+        <!-- <div class="Loop">
+            <span class="pointes"> 🪙loop = <span id="loop">0</span></span>
+        </div> -->
+        <div class="alert">
+            <span class="alert"></span>
+        </div>
+        <div class="box" id="box" class="box" onclick="clicked()" onmouseover="box()">
+            <div>
+                <span class="click_me">Click me 😁</span>
+            </div>
+        </div>
+</body>
+
+<script>
+    var side = "right";
+    var itration = 1;
+    var audio = document.getElementById("myAudio");
+
+    var i = 0;
+
+    document.getElementById("loop").innerHTML = itrationl;
+
+
+    function clicked() {
+        document.getElementById("points").innerHTML = parseInt(document.getElementById("points").innerHTML) + 1;
+        audio.play();
+
+
+
+
+    }
+
+    function box() {
+
+        if (side == "right") {
+            document.getElementById("box").style.transform = "translateX(400px)";
+            document.getElementById("box").style.transition = "all 0.1s";
+            side = "left";
+            itration = parseInt(itration) + 1
+            document.getElementById("loop").innerHTML = itration;
+
+        } else if (side == "left") {
+
+            document.getElementById("box").style.transform = "translateX(0px)";
+            document.getElementById("box").style.transition = "all 0.1s";
+            side = "bottom";
+            itration = parseInt(itration) + 1
+            document.getElementById("loop").innerHTML = itration;
+
+        } else if (side == "bottom") {
+
+            document.getElementById("box").style.transform = "translatey(200px)";
+            document.getElementById("box").style.transition = "all 0.1s";
+            side = "right";
+            itration = parseInt(itration) + 1
+            document.getElementById("loop").innerHTML = itration;
+        } else if (side == "left") {
+
+            document.getElementById("box").style.transform = "translateX(0px)";
+            document.getElementById("box").style.transition = "all 0.1s";
+            side = "on";
+            itration = parseInt(itration) + 1
+            document.getElementById("loop").innerHTML = itration;
+        }
+
+        if (itration == 20) {
+            document.getElementById("alert").innerHTML = "Nhi Ho paaye ga aaup se Clicked 🤭🤣";
+
+        }
+
+
+    }
+</script>
+
+</html>
